@@ -113,12 +113,15 @@
     }
 
     // --- Global Error Handler (Step 5) ---
-
+    // Save TrackJS's onerror handler (installed before this script) and chain ours after
+    const _trackJsOnError = window.onerror;
     window.onerror = function (message, source, lineno, colno, error) {
       console.log(
         `[Global Error Caught]\n  Message: ${message}\n  Source: ${source}\n  Line: ${lineno}, Col: ${colno}`
       );
-      return true; // prevents default browser error handling
+      // Pass the error through to TrackJS
+      if (_trackJsOnError) return _trackJsOnError.apply(this, arguments);
+      return false;
     };
 
     // --- Calculator with try/catch/finally (Step 3) ---
