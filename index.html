@@ -7,9 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lab 9</title>
 
-  <!-- TrackJS Error Monitoring - replace YOUR_TOKEN with your actual TrackJS token -->
-  <script type="text/javascript">window._trackJs = { token: "lab9" };</script>
-  <script type="text/javascript" src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <!-- TrackJS Error Monitoring -->
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({
+      token: "3d7296e6efb94f9c8c07286236d5706f"
+    });
+  </script>
 
   <style>
     button {
